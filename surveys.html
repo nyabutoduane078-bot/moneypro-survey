@@ -1,1 +1,432 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SurveyX — Surveys</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#050505;
+  color:#f5f7f4;
+  min-height:100vh;
+}
+
+.navbar{
+  height:75px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,5,5,.75);
+  backdrop-filter:blur(25px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#b6ff00;
+  text-shadow:0 0 20px #b6ff00;
+}
+
+.navlinks{
+  display:flex;
+  gap:25px;
+}
+
+.navlinks a{
+  color:#aaa;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.navlinks a:hover,
+.navlinks .active{
+  color:#b6ff00;
+}
+
+.container{
+  width:86%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:65px 0;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:50px;
+  background:rgba(182,255,0,.08);
+  border:1px solid rgba(182,255,0,.25);
+  color:#b6ff00;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:clamp(40px,6vw,65px);
+  letter-spacing:-3px;
+  margin-bottom:12px;
+}
+
+.subtitle{
+  color:#969b94;
+  max-width:650px;
+  line-height:1.7;
+}
+
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:35px 0;
+}
+
+.filter{
+  padding:11px 17px;
+  border-radius:14px;
+  background:rgba(255,255,255,.05);
+  color:#aaa;
+  border:1px solid rgba(255,255,255,.1);
+  cursor:pointer;
+}
+
+.filter.active{
+  background:#b6ff00;
+  color:#050505;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:25px;
+  border-radius:25px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(20px);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(182,255,0,.35);
+}
+
+.icon{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:17px;
+  background:rgba(182,255,0,.1);
+  margin-bottom:20px;
+  font-size:23px;
+}
+
+.card h2{
+  font-size:20px;
+  margin-bottom:9px;
+}
+
+.card p{
+  color:#92978f;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.09);
+  padding-top:16px;
+  color:#858b82;
+  font-size:12px;
+}
+
+.reward{
+  color:#b6ff00;
+  font-weight:bold;
+}
+
+.start{
+  width:100%;
+  border:none;
+  padding:13px;
+  border-radius:14px;
+  margin-top:20px;
+  background:#b6ff00;
+  color:#050505;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.start:hover{
+  box-shadow:0 0 25px rgba(182,255,0,.25);
+}
+
+.notice{
+  margin-top:35px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  color:#8f958c;
+  font-size:13px;
+}
+
+@media(max-width:850px){
+
+.navlinks{
+  display:none;
+}
+
+.grid{
+  grid-template-columns:1fr;
+}
+
+.container{
+  width:90%;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+Survey<span>X</span>
+</a>
+
+<div class="navlinks">
+<a href="index.html">Home</a>
+<a href="surveys.html" class="active">Surveys</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="withdraw.html">Withdraw</a>
+<a href="referrals.html">Referrals</a>
+</div>
+
+</nav>
+
+
+<main class="container">
+
+<span class="badge">● LIVE SURVEY FEED</span>
+
+<h1>
+Find your next
+<span style="color:#b6ff00;">survey.</span>
+</h1>
+
+<p class="subtitle">
+Browse available activities and choose surveys that match
+your profile. Availability, qualification and rewards can vary.
+</p>
+
+
+<div class="filters">
+
+<button class="filter active">All</button>
+<button class="filter">Quick</button>
+<button class="filter">Technology</button>
+<button class="filter">Shopping</button>
+<button class="filter">Entertainment</button>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="icon">🛍️</div>
+
+<h2>Shopping Habits</h2>
+
+<p>
+Tell us about how you shop, discover products
+and decide what to buy.
+</p>
+
+<div class="meta">
+<span>⏱ 5–8 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Shopping Habits')">
+Start Survey →
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎵</div>
+
+<h2>Music & Entertainment</h2>
+
+<p>
+Share your opinions about music,
+streaming and entertainment.
+</p>
+
+<div class="meta">
+<span>⏱ 3–5 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Music & Entertainment')">
+Start Survey →
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📱</div>
+
+<h2>Technology</h2>
+
+<p>
+Tell us about the devices, applications
+and technology you use.
+</p>
+
+<div class="meta">
+<span>⏱ 6–10 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Technology')">
+Start Survey →
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎮</div>
+
+<h2>Gaming</h2>
+
+<p>
+Tell us about your gaming habits,
+platforms and favorite experiences.
+</p>
+
+<div class="meta">
+<span>⏱ 4–7 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Gaming')">
+Start Survey →
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🍔</div>
+
+<h2>Food & Lifestyle</h2>
+
+<p>
+Share your preferences around food,
+restaurants and lifestyle choices.
+</p>
+
+<div class="meta">
+<span>⏱ 5–7 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Food & Lifestyle')">
+Start Survey →
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👟</div>
+
+<h2>Fashion</h2>
+
+<p>
+Tell us about your style, clothing
+and shopping preferences.
+</p>
+
+<div class="meta">
+<span>⏱ 4–6 min</span>
+<span class="reward">Reward varies</span>
+</div>
+
+<button class="start" onclick="startSurvey('Fashion')">
+Start Survey →
+</button>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+<strong>ℹ️ Important:</strong>
+Survey availability depends on eligibility and the
+requirements of each survey provider. Completing a
+survey does not guarantee qualification or a particular reward.
+</div>
+
+</main>
+
+
+<script>
+
+function startSurvey(name){
+
+  alert(
+    "You selected: " + name +
+    "\\n\\nThe survey questionnaire will be connected here next."
+  );
+
+}
+
+</script>
+
+</body>
+</html>
